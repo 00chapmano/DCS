@@ -1,3 +1,5 @@
+-- cool
+
 function checkUnits1()
 
 local zone_names = {'zone1'}
