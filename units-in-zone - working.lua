@@ -1,11 +1,11 @@
 function checkUnits1()
 
-local zone_names = {'zone1'}
-local unit_names = {'test', 'test2'}
+local zoneNames = {'zone1'}
+local unitNames = {'test', 'test2'}
 
-local unitTable1 = mist.getUnitsInZones(unit_names ,zone_names)
+local unitTable1 = mist.getUnitsInZones(unitNames ,zoneNames)
 
-mist.scheduleFunction(checkUnits2, {unitTable1}, timer.getTime() + 10)
+mist.scheduleFunction(checkUnits2, {unitTable1, unitNames, zoneNames}, timer.getTime() + 10)
 
 end
 
@@ -13,19 +13,13 @@ end
 
 --function 2
 
-function checkUnits2(unitTable1)
+function checkUnits2(units, unitNames, zoneNames)
 
-	local zone_names = {'zone1'}
-	local unit_names = {'test', 'test2'}
-
-
-	unitTable2 = mist.getUnitsInZones(unit_names ,zone_names)
+	unitTable2 = mist.getUnitsInZones(unitNames ,zoneNames)
 
 	
-	if unitTable1[1] == unitTable2[1] then
-
-
-	trigger.action.outText("did it!", 10, false)
+	if units[1] == unitTable2[1] then
+		trigger.action.outText("did it!", 10, false)
 	end
 end
 
