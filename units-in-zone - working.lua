@@ -11,7 +11,7 @@ end
 
 
 
-
+--function 2
 
 function checkUnits2(unitTable1)
 
